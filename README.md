@@ -4,18 +4,18 @@
 - [X] Deve ser possível filtrar pets por suas características
 - [X] Deve ser possível visualizar detalhes de um pet para adoção
 - [X] Deve ser possível se cadastrar como uma ORG
-- [] Deve ser possível realizar login como uma ORG
+- [X] Deve ser possível realizar login como uma ORG
 
 # RN (Regras de Negocio)
 - [X] Para listar os pets, obrigatoriamente precisamos informar a cidade
 - [X] Uma ORG precisa ter um endereço e um número de WhatsApp
 - [X] Um pet deve estar ligado a uma ORG
-- [] O usuário que quer adotar, entrará em contato com a ORG via WhatsApp
+- [X] O usuário que quer adotar, entrará em contato com a ORG via WhatsApp
 - [X] Todos os filtros, além da cidade, são opcionais
-- [] Para uma ORG acessar a aplicação como admin, ela precisa estar logada
+- [X] Para uma ORG acessar a aplicação como admin, ela precisa estar logada
 
 # RNF (Requisitos não funcionais)
 - [X] Deve se utilizar typescript
-- [] JWT para autenticação
+- [X] JWT para autenticação
 - [X] Prisma ORM
 - [X] Docker
