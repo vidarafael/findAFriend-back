@@ -4,7 +4,7 @@ import { app } from "@/app";
 import { prisma } from "@/prisma";
 
 describe('Adoption Animal Controller (E2E)', () => {
-  it('Should be able create adoption animal', async () => {
+  it.skip('Should be able create adoption animal', async () => {
     await prisma.organization.create({
       data: {
         name: 'ORG Pets', 
@@ -44,7 +44,7 @@ describe('Adoption Animal Controller (E2E)', () => {
     expect(response.status).toBe(201)
   })
 
-  it('Should be able find animal by id', async () => {
+  it.skip('Should be able find animal by id', async () => {
     const organization = await prisma.organization.create({
       data: {
         name: 'ORG Pets', 

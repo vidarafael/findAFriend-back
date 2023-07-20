@@ -1,21 +1,24 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, afterEach } from "vitest";
 import request from "supertest"
 import { app } from "@/app";
 import { prisma } from "@/prisma";
 
 describe('Animal Controller (E2E)', () => {
+  afterEach(async () => {
+    await prisma.organization.deleteMany()
+    await prisma.animal.deleteMany()
+  })
+ 
   it('Should be able create animal', async () => {
-    await prisma.organization.create({
-      data: {
-        name: 'ORG Pets', 
-        email: 'orgpet@hotmail.com', 
-        password_hash: 'secretpassword',
-        city: 'guarulhos',
-        state: 'são paulo',
-        phone: '11 99999-9999',
-        latitude: 1,
-        longitude: 1
-      }
+    await request(app).post('/organization/register').send({
+      name: 'ORG Pets', 
+      email: 'orgpet@hotmail.com', 
+      password: 'secretpassword',
+      city: 'guarulhos',
+      state: 'são paulo',
+      phone: '11 99999-9999',
+      latitude: 1,
+      longitude: 1
     })
 
     const authResponse = await request(app).post('/organization/session').send({
@@ -56,7 +59,10 @@ describe('Animal Controller (E2E)', () => {
         id: expect.any(String),
         name: expect.any(String),
         type_animal: expect.any(String),
-        age_in_month: expect.any(String)
+        age_in_month: expect.any(Number),
+        size: expect.any(String),
+        image: null,
+        created_at: expect.any(Date)
       })
     }))
   })
