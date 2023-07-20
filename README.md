@@ -19,3 +19,5 @@
 - [X] JWT para autenticação
 - [X] Prisma ORM
 - [X] Docker
+
+# finished
